@@ -8,20 +8,26 @@ module.exports = {
   theme: {
     colors: {
       gray: "#d6d6d6",
-      white: "#fff",
-      black: "#000",
-      red: "#9e040c",
-      orange: "#ff9500",
+      white: "var(--color-white)",
+      black: "var(--color-black)",
+      red: "var(--color-red)",
+      orange: "var(--color-orange)",
+      pink: "var(--color-pink)",
+      yellow: "var(--color-yellow)",
+      lightGreen: "var(--color-lightGreen)",
+      green: "var(--color-green)",
     },
 
     backgroundColor: {
-      black: "#000",
-      white: "#fff",
-      pink: "#ff9ea3",
-      yellow: "#fffbdc",
-      lightGreen: "#e1efe3",
-      green: "#235c1b",
       gray: "#f4f4f4",
+      white: "var(--color-white)",
+      black: "var(--color-black)",
+      red: "var(--color-red)",
+      orange: "var(--color-orange)",
+      pink: "var(--color-pink)",
+      yellow: "var(--color-yellow)",
+      lightGreen: "var(--color-lightGreen)",
+      green: "var(--color-green)",
     },
 
     fontFamily: {
@@ -32,6 +38,19 @@ module.exports = {
     extend: {
       borderRadius: {
         large: "var(--border-radius-large)",
+      },
+
+      height: {
+        button: "2.5rem",
+      },
+
+      width: {
+        button: "2.5rem",
+      },
+
+      padding: {
+        small: "var(--padding-small)",
+        medium: "var(--padding-medium)",
       },
     },
   },

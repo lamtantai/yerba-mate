@@ -137,7 +137,7 @@ export default function Header() {
     <>
       <Menu isOpen={isMenuOpen} />
       <motion.header
-        className="fixed top-0 z-50 w-full py-[var(--header-height-padding)] font-studioProBold"
+        className="fixed top-0 z-50 w-full py-[var(--header-height-padding)] "
         variants={translateY}
         animate={isHeaderHidden ? "hidden" : "visible"}
       >
@@ -171,8 +171,8 @@ export default function Header() {
               className="mr-14 flex size-10 items-center justify-center rounded-full bg-gray/20 hover:bg-gray/50"
               variants={variants}
               initial="initial"
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
+              onHoverStart={() => setIsHover(true)}
+              onHoverEnd={() => setIsHover(false)}
               onClick={() => setIsMenuOpen((prev) => !prev)}
               animate={isHover ? "animate" : "exit"}
             >

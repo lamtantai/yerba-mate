@@ -67,7 +67,7 @@ export default function Menu({ isOpen }) {
 
   return (
     <div
-      className={`${isOpen ? "pointer-events-auto" : "pointer-events-none"} fixed top-0 z-40 w-full font-studioProBold`}
+      className={`${isOpen ? "pointer-events-auto" : "pointer-events-none"} fixed top-0 z-40 w-full`}
     >
       <div
         className="h-screen w-full"
@@ -79,7 +79,7 @@ export default function Menu({ isOpen }) {
         <motion.div className="flex min-h-full flex-col overflow-hidden lg:flex-row">
           {/* TOP CONTAINER */}
           <motion.div
-            className="rounded-b-large lg:rounded-r-large flex grow flex-col bg-white px-5 pb-6 pt-[calc(var(--header-height-inner)+var(--header-height-padding)*2)] md:px-[var(--border-radius-large)] lg:grow-0 lg:basis-2/3 lg:rounded-none"
+            className="flex grow flex-col rounded-b-large bg-white px-5 pb-6 pt-[calc(var(--header-height-inner)+var(--header-height-padding)*2)] md:px-[var(--border-radius-large)] lg:grow-0 lg:basis-2/3 lg:rounded-none lg:rounded-r-large"
             {...animate(clipPath(clippathDirection), isOpen)}
           >
             {/* NAV 1 CONTAINER */}
@@ -163,11 +163,11 @@ export default function Menu({ isOpen }) {
                 alt="Mate image"
                 className="h-full w-full object-cover"
               />
-              <div className="pointer-events-none absolute left-0 top-0 h-full w-full bg-black/40" />
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-full bg-black opacity-40" />
             </motion.div>
 
             <motion.div
-              className="rounded-t-large lg:rounded-large bg-gray lg:min-h-[280px]"
+              className="rounded-t-large bg-gray lg:min-h-[280px] lg:rounded-large"
               {...animate(slideIn, isOpen)}
             >
               <motion.div

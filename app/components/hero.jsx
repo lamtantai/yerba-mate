@@ -6,9 +6,13 @@ import Button from "./button";
 
 export default function Hero() {
   return (
-    <section className="h-screen">
-      <div className="relative h-full w-full">
-        <div className="absolute left-0 top-0 -z-10 h-full w-full">
+    <section className="relative z-10 h-screen">
+      <div className="relative h-full w-full overflow-hidden">
+        <div
+          className="absolute left-0 top-0 -z-10 h-full w-full"
+          data-scroll
+          data-scroll-speed="-0.5"
+        >
           <Image
             src="/hero-home-03.jpg"
             alt="Hero image"
@@ -17,8 +21,8 @@ export default function Hero() {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full bg-black/30" />
-        <div className="flex h-full w-full flex-col justify-end px-5 pb-10 pt-24 font-studioProBold md:px-16 lg:pb-32">
+        <div className="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full bg-black opacity-30" />
+        <div className="flex h-full w-full flex-col justify-end px-small pb-10 pt-24 lg:pb-32">
           <h2 className="mb-10 text-5xl text-gray md:text-[6vw]">
             <p>
               <span>the</span>&nbsp;

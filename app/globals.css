@@ -8,6 +8,20 @@
     --header-height-inner: 3.125rem;
     --header-height-padding: 10px;
     --border-radius-large: 30px;
+
+    /* COLORS */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-red: #9e040c;
+    --color-orange: #ff9500;
+    --color-pink: #ff9ea3;
+    --color-yellow: #fffbdc;
+    --color-lightGreen: #e1efe3;
+    --color-green: #235c1b;
+
+    /* PADDING */
+    --padding-small: 1.25rem;
+    --padding-medium: 4rem;
   }
 
   @media (min-width: 768px) {
@@ -15,6 +29,8 @@
       --header-link-height: 3rem;
       --header-height-inner: 3.75rem;
       --header-height-padding: 20px;
+
+      --padding-small: 4rem;
     }
   }
 
@@ -37,7 +53,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Optional: Add hover and transition effects */
+/* SWIPER STYLE */
 .swiper-button-prev::after,
 .swiper-button-next::after {
   display: none !important;

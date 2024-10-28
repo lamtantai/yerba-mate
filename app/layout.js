@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${studioProBold.variable} ${studioProRegular.variable} font-studioProRegular antialiased`}
+        className={`${studioProBold.variable} ${studioProRegular.variable} font-studioProBold antialiased`}
       >
         {children}
       </body>
