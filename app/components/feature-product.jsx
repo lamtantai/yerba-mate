@@ -1,18 +1,25 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { MOST_POPULAR_YERBA_MATE as items } from "../lib/data";
-
+// IMPORT SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import "swiper/css";
+
+// IMPORT FROM REACT
+import { useRef, useState } from "react";
+
+// IMPORT DATA
+import { MOST_POPULAR_YERBA_MATE as items } from "../lib/data";
+
+// IMPORT REACT ICON
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import "swiper/css";
 import { clipPathButton, slideIn } from "../animations/animations";
 import InfinityText from "./infinity-text";
+import useGetWindowWidth from "../hooks/useGetWindowWidth";
 
 const Button = ({ backgroundColor, color, isHover }) => {
   return (
@@ -54,22 +61,14 @@ const Button = ({ backgroundColor, color, isHover }) => {
 };
 
 export default function FeatureProduct() {
-  const [isXL, setIsXL] = useState(false);
+  const windowWidth = useGetWindowWidth();
 
-  // Check the window size on load and resize
-  useEffect(() => {
-    const checkWindowSize = () => setIsXL(window.innerWidth >= 1280);
-    checkWindowSize(); // Run on load
-    window.addEventListener("resize", checkWindowSize); // Run on resize
-
-    return () => window.removeEventListener("resize", checkWindowSize);
-  }, []);
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["100%", "-70%"]);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverStates, setHoverStates] = useState(
@@ -82,31 +81,36 @@ export default function FeatureProduct() {
       ref={container}
     >
       <div className="xl:sticky xl:top-0 xl:flex xl:h-screen xl:flex-col xl:justify-between">
-        <div className="mb-10 flex items-center justify-between px-small pt-16 md:px-16 xl:sticky xl:top-0">
-          <h2 className="text-lg leading-none md:text-xl xl:text-2xl">
-            Discover our most popular <br /> yerba mate infusions
-          </h2>
+        <div className="xl:absolute xl:top-0 xl:h-screen">
+          <div className="mb-10 flex items-center justify-between px-small md:px-16 lg:pt-16 xl:sticky xl:top-0 xl:h-screen xl:items-start">
+            <h2 className="text-lg leading-none md:text-xl xl:text-2xl">
+              Discover our most popular <br /> yerba mate infusions
+            </h2>
 
-          {/* CUSTOM ARROW NAVIGATION */}
-          <div className="flex gap-2 xl:hidden">
-            <button
-              className={`swiper-button-prev h-button w-button rounded-full bg-gray text-black ${activeIndex === 0 && "pointer-events-none opacity-40"}`}
-            >
-              <span className="flex items-center justify-center text-xl">
-                <IoArrowBackSharp />
-              </span>
-            </button>
-            <button
-              className={`swiper-button-next h-button w-button rounded-full bg-gray text-black ${activeIndex === items.length - 1 && "pointer-events-none opacity-40"}`}
-            >
-              <span className="flex items-center justify-center text-xl">
-                <IoArrowForwardSharp />
-              </span>
-            </button>
+            {/* CUSTOM ARROW NAVIGATION */}
+            <div className="flex gap-2 xl:hidden">
+              <button
+                className={`swiper-button-prev h-button w-button rounded-full bg-gray text-black ${activeIndex === 0 && "pointer-events-none opacity-40"}`}
+              >
+                <span className="flex items-center justify-center text-xl">
+                  <IoArrowBackSharp />
+                </span>
+              </button>
+              <button
+                className={`swiper-button-next h-button w-button rounded-full bg-gray text-black ${activeIndex === items.length - 1 && "pointer-events-none opacity-40"}`}
+              >
+                <span className="flex items-center justify-center text-xl">
+                  <IoArrowForwardSharp />
+                </span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <motion.div className="" style={{ x: isXL ? x : 0 }}>
+        <motion.div
+          className="flex h-full xl:w-fit xl:items-center"
+          style={{ x: windowWidth >= 1280 ? x : 0 }}
+        >
           {/* SWIPER CONTAINER */}
           <Swiper
             modules={[Navigation]}
@@ -125,15 +129,14 @@ export default function FeatureProduct() {
               nextEl: ".swiper-button-next", // Custom buttons
               prevEl: ".swiper-button-prev",
             }}
-            onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            className="!px-small xl:!w-fit"
+            className="!px-small"
           >
             {/* SWIPER SLIDE CONTAINER */}
             {items.map((item, index) => (
               <SwiperSlide
                 className="relative overflow-hidden rounded-large xl:!aspect-[680/480] xl:!w-[42.5rem]"
-                key={index}
+                key={item.name}
                 style={{ backgroundColor: item.color1, color: item.color }}
               >
                 {/* LINK OVERLAY */}
@@ -151,7 +154,7 @@ export default function FeatureProduct() {
                 >
                   <Link
                     href="/"
-                    className="absolute left-0 top-0 z-10 h-full w-full"
+                    className="absolute left-0 top-0 z-30 h-full w-full"
                   />
                 </motion.div>
                 <div className="relative flex aspect-[5/4] w-full flex-col justify-between p-5 md:aspect-[10/6] md:px-10 lg:aspect-auto lg:h-[25rem] xl:h-full">
@@ -215,14 +218,18 @@ export default function FeatureProduct() {
             ))}
           </Swiper>
         </motion.div>
-        <InfinityText
-          list={[
-            "Energy infusions",
-            "60 mg of caffeine",
-            "Awakens the mind",
-            "No crash",
-          ]}
-        />
+
+        {/* INFINITY TEXT */}
+        <div className="pointer-events-none xl:absolute xl:flex xl:h-screen xl:items-end">
+          <InfinityText
+            list={[
+              "Energy infusions",
+              "60 mg of caffeine",
+              "Awakens the mind",
+              "No crash",
+            ]}
+          />
+        </div>
       </div>
     </motion.div>
   );

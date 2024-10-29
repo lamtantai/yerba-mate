@@ -48,7 +48,7 @@ export function AnimatedText({ line1, line2 }) {
 
   return (
     <h2
-      className="mb-14 flex h-full flex-col overflow-hidden px-small py-4 text-5xl lg:mb-32 lg:text-center lg:text-6xl 2xl:text-8xl"
+      className="mb-14 flex h-full flex-col overflow-hidden px-small py-4 text-5xl lg:mb-32 lg:text-center lg:text-6xl 2xl:text-9xl"
       ref={ref}
     >
       <motion.span className="text-gray" variants={bounce}>

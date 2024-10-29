@@ -21,7 +21,7 @@ export default function Carousel() {
       </div>
 
       <div className="relative z-10 rounded-large bg-gray lg:w-[40vw] xl:h-[40vw]">
-        <figure className="-mt-16 pb-20 pl-16 pr-small pt-32 lg:mt-0 lg:pt-44">
+        <figure className="-mt-16 pb-20 pl-10 pr-small pt-32 lg:mt-0 lg:pt-44">
           <span className="absolute top-[10%] text-4xl">
             <BiSolidQuoteLeft />
           </span>

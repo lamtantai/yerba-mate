@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 
-export default function InfinityText({ list }) {
+export default memo(function InfinityText({ list }) {
   // Duplicate the list to create a seamless scroll
   const repeatedList = [...list, ...list];
 
@@ -22,7 +22,7 @@ export default function InfinityText({ list }) {
             className="text-nowrap pr-14 odd:text-gray even:text-black"
             key={index}
           >
-            <div className="text-5xl !leading-normal lg:text-7xl xl:text-9xl">
+            <div className="text-5xl !leading-normal lg:text-6xl xl:text-7xl 2xl:text-9xl">
               {item}
             </div>
           </li>
@@ -30,4 +30,4 @@ export default function InfinityText({ list }) {
       </motion.ul>
     </div>
   );
-}
+});
