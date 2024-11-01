@@ -26,7 +26,7 @@ const Button = ({ backgroundColor, color, isHover }) => {
     <div className="flex w-full justify-end">
       <motion.button
         className="relative flex h-button w-[125px] items-center rounded-full px-4"
-        initial="initial"
+        initial="initial" 
         animate={isHover ? "animate" : "exit"}
         variants={clipPathButton}
         style={{
@@ -137,7 +137,7 @@ export default function FeatureProduct() {
               <SwiperSlide
                 className="relative overflow-hidden rounded-large xl:!aspect-[680/480] xl:!w-[42.5rem]"
                 key={item.name}
-                style={{ backgroundColor: item.color1, color: item.color }}
+                style={{ backgroundColor: item.colorSecondary, color: item.colorSecondary }}
               >
                 {/* LINK OVERLAY */}
                 <motion.div
@@ -161,8 +161,8 @@ export default function FeatureProduct() {
                   <h2 className="text-5xl lg:text-6xl">{item.name}</h2>
 
                   <Button
-                    backgroundColor={item.color}
-                    color={item.color1}
+                    backgroundColor={item.colorSecondary}
+                    color={item.colorSecondary}
                     isHover={hoverStates[index]}
                   >
                     {item.name}

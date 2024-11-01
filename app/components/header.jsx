@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { animate, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
 import { IoBagOutline } from "react-icons/io5";
@@ -73,7 +72,7 @@ const MenuLine = () => {
 };
 
 const IconButton = ({ href, icon, showBadge = false }) => (
-  <motion.li className="mr-2 rounded-full bg-gray/20 hover:bg-gray/50">
+  <motion.li className="bg-gray/20 hover:bg-gray/50 mr-2 rounded-full">
     <Link
       href={href}
       className="relative flex size-10 items-center justify-center"
@@ -126,7 +125,7 @@ export default function Header() {
   // Track scroll changes to toggle header visibility
   useMotionValueEvent(scrollY, "change", (y) => {
     const different = y - lastYRef.current;
-    if (Math.abs(different) >= 50) {
+    if (!isMenuOpen && Math.abs(different) >= 50) {
       setIsHeaderHidden(different > 0); // Hide on scroll down, show on scroll up
 
       lastYRef.current = y;
@@ -137,11 +136,11 @@ export default function Header() {
     <>
       <Menu isOpen={isMenuOpen} />
       <motion.header
-        className="fixed top-0 z-50 w-full py-[var(--header-height-padding)] "
+        className="fixed top-0 z-50 w-full py-[--header-height-padding]"
         variants={translateY}
         animate={isHeaderHidden ? "hidden" : "visible"}
       >
-        <div className="flex h-[var(--header-height-inner)] justify-between px-5">
+        <div className="flex h-[--header-height-inner] justify-between px-5">
           {/* LEFT */}
           <nav className="flex h-full">
             <div className="mr-5 h-[50px] w-[100px] md:h-[60px] md:w-[120px] xl:mr-14">
@@ -168,7 +167,7 @@ export default function Header() {
 
             {/* BUTTON MENU */}
             <motion.button
-              className="mr-14 flex size-10 items-center justify-center rounded-full bg-gray/20 hover:bg-gray/50"
+              className="bg-gray/20 hover:bg-gray/50 mr-14 flex size-10 items-center justify-center rounded-full"
               variants={variants}
               initial="initial"
               onHoverStart={() => setIsHover(true)}
@@ -177,14 +176,14 @@ export default function Header() {
               animate={isHover ? "animate" : "exit"}
             >
               <span className="flex h-[10px] w-5 flex-col justify-between">
-                {[...Array(3)].map((_, i) => (
-                  <MenuLine key={i} />
+                {[...Array(3)].map((_, index) => (
+                  <MenuLine key={index} />
                 ))}
               </span>
             </motion.button>
 
             <ul className="hidden space-x-11 text-white lg:flex">
-              <NavItem href="/">products</NavItem>
+              <NavItem href="/products/all">products</NavItem>
               <NavItem href="/">
                 <span className="flex items-center">
                   explore

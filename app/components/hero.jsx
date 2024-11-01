@@ -6,7 +6,7 @@ import Button from "./button";
 
 export default function Hero() {
   return (
-    <section className="relative z-10 mb-16 h-screen">
+    <section className="relative z-10 mb-16 h-svh">
       <div className="relative h-full w-full overflow-hidden">
         <div
           className="absolute left-0 top-0 -z-10 h-full w-full"

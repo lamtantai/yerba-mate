@@ -17,6 +17,7 @@ const waving = {
 const parent = {
   animate: {
     transition: { staggerChildren: 0.075 },
+    scale: 1.05,
   },
   exit: {
     transition: { staggerChildren: 0.075 },
@@ -37,7 +38,7 @@ export default function Button({ href, children, bgWhite }) {
           {chars.map((char, index) => (
             <motion.span
               className="inline-block text-xl leading-none"
-              key={index}
+              key={index + char}
               variants={waving}
             >
               {char === " " ? "\u00A0" : char}

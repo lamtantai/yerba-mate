@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     colors: {
-      gray: "#d6d6d6",
+      gray: "var(--color-gray)",
       white: "var(--color-white)",
       black: "var(--color-black)",
       red: "var(--color-red)",
+      lightRed: "var(--color-lightRed)",
+      lightPink: "var(--color-lightPink)",
+      beige: "var(--color-beige)",
+      brown: "var(--color-brown)",
+
       orange: "var(--color-orange)",
       pink: "var(--color-pink)",
       yellow: "var(--color-yellow)",
@@ -19,10 +24,15 @@ module.exports = {
     },
 
     backgroundColor: {
-      gray: "#f4f4f4",
+      gray: "var(--color-gray)",
       white: "var(--color-white)",
       black: "var(--color-black)",
       red: "var(--color-red)",
+      lightRed: "var(--color-lightRed)",
+      lightPink: "var(--color-lightPink)",
+      beige: "var(--color-beige)",
+      brown: "var(--color-brown)",
+
       orange: "var(--color-orange)",
       pink: "var(--color-pink)",
       yellow: "var(--color-yellow)",
@@ -36,6 +46,12 @@ module.exports = {
     },
 
     extend: {
+      fontSize: {
+        huge: "clamp(3rem, calc(120/2000*100vw), 7.5rem)",
+        h2: "clamp(2.25rem,calc(48/2000*100vw), 3rem)",
+        h4: "clamp(1.25rem,calc(24/2000*100vw), 1.5rem)",
+      },
+
       borderRadius: {
         large: "var(--border-radius-large)",
       },

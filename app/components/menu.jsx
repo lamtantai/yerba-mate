@@ -89,7 +89,10 @@ export default function Menu({ isOpen }) {
                 {...animate(parent, isOpen)}
               >
                 <motion.li variants={slideInLeft}>
-                  <Link href="/" className="inline-block py-[0.375rem]">
+                  <Link
+                    href="/products/all"
+                    className="inline-block py-[0.375rem]"
+                  >
                     products
                   </Link>
                 </motion.li>
