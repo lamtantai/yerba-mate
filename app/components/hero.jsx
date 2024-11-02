@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
-import Button from "./button";
+import BouncingText from "./ui/bouncing-text";
+import { CTAButton } from "./ui/button";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative z-10 mb-16 h-svh">
-      <div className="relative h-full w-full overflow-hidden">
+    <section className="relative z-10">
+      <div className="relative mb-16 h-dvh w-full overflow-hidden">
         <div
           className="absolute left-0 top-0 -z-10 h-full w-full"
           data-scroll
@@ -16,28 +17,31 @@ export default function Hero() {
           <Image
             src="/hero-home-03.jpg"
             alt="Hero image"
-            width={1200}
+            width={1800}
             height={965}
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full bg-black opacity-30" />
+        <motion.div
+          className="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full bg-black"
+          initial={{ opacity: 0.9 }}
+          animate={{ opacity: 0.3 }}
+          transition={{ duration: 0.2 }}
+        />
         <div className="flex h-full w-full flex-col justify-end px-small pb-10 pt-24 lg:pb-32">
-          <h2 className="mb-10 text-5xl text-gray md:text-[6vw]">
-            <p>
-              <span>the</span>&nbsp;
-              <span>ideal</span>
-            </p>
-            <p>
-              <span>dose</span>
-            </p>
-            <p className="text-white">
-              <span>of nature</span>
-            </p>
-          </h2>
-          <Button href="/" bgWhite>
+          <div className="mb-10">
+            <BouncingText
+              line1="the ideal"
+              colorLine1="var(--color-gray)"
+              line2="dose"
+              colorLine2="var(--color-gray)"
+              line3="of nature"
+            />
+          </div>
+
+          <CTAButton href="/" backgroundWhite>
             build your box
-          </Button>
+          </CTAButton>
         </div>
       </div>
     </section>

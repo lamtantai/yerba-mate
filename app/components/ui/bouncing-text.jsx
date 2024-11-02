@@ -41,7 +41,7 @@ export default function BouncingText({
 }) {
   return (
     <motion.h2
-      className="overflow-hidden text-huge/none tracking-tight"
+      className="overflow-hidden text-huge/none tracking-tight text-white"
       variants={variants}
       initial="initial"
       animate="enter"

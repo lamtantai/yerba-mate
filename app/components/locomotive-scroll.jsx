@@ -1,15 +1,47 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import LocomotiveScroll from "locomotive-scroll";
+import { useMenu } from "../context/menu-provider";
 
 const SmoothScroll = ({ children }) => {
+  const { isMenuOpen } = useMenu();
+  const scrollRef = useRef(null);
+  const locomotiveInstance = useRef(null);
+
   useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll({
-      smooth: true,
-    });
+    // Initialize Locomotive Scroll once
+    if (scrollRef.current) {
+      locomotiveInstance.current = new LocomotiveScroll({
+        el: scrollRef.current,
+        smooth: true,
+      });
+    }
+
+    // Clean up on unmount
+    return () => {
+      if (locomotiveInstance.current) locomotiveInstance.current.destroy();
+    };
   }, []);
 
-  return <div data-scroll-container>{children}</div>;
+  useEffect(() => {
+    // Control Locomotive Scroll and body overflow based on `isMenuOpen`
+    if (locomotiveInstance.current) {
+      isMenuOpen
+        ? locomotiveInstance.current.stop()
+        : locomotiveInstance.current.start();
+    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
+
+  return (
+    <div ref={scrollRef} data-scroll-container>
+      {children}
+    </div>
+  );
 };
 
 export default SmoothScroll;

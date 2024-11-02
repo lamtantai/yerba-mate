@@ -15,7 +15,7 @@ const clippath = {
 export default function SpreadOut({ children }) {
   return (
     <motion.div
-      className=""
+      className="h-full"
       initial="initial"
       animate="enter"
       variants={clippath}

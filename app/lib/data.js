@@ -3,33 +3,38 @@ export const MOST_POPULAR_YERBA_MATE = [
     name: "watermelon",
     srcImage: "/Watermelon/Watermelon.png",
     srcIllustration: "/Watermelon/Watermelon-illustration.png",
+    srcIllustrationCard: "/Watermelon/Watermelon-illustration.png",
     colorPrimary: "var(--color-red)",
     colorSecondary: "var(--color-pink)",
+    href: "/products/watermelon",
   },
 
   {
     name: "passion",
     srcImage: "/Passion/Passion.png",
     srcIllustration: "/Passion/Passion-illustration.png",
+    srcIllustrationCard: "/Passion/Passion-illustration.png",
     colorPrimary: "var(--color-orange)",
     colorSecondary: "var(--color-yellow)",
+    href: "/products/passion",
   },
 
   {
     name: "mint & lime",
     srcImage: "/Mint/Mint.png",
     srcIllustration: "/Mint/Mint-illustration.png",
+    srcIllustrationCard: "/Mint/Mint-illustration.png",
     colorPrimary: "var(--color-green)",
     colorSecondary: "var(--color-lightGreen)",
+    href: "/products/mint-lime",
   },
 
-  {
-    name: "see more products",
-    srcImage: "/",
-    srcIllustration: "/",
-    colorPrimary: "var(--color-white)",
-    colorSecondary: "var(--color-black)",
-  },
+  // {
+  //   name: "see more products",
+  //   colorPrimary: "var(--color-white)",
+  //   colorSecondary: "var(--color-black)",
+  //   href: "/products/all",
+  // },
 ];
 
 export const ALL_PRODUCTS = [
@@ -46,7 +51,8 @@ export const ALL_PRODUCTS = [
       "/Watermelon/Watermelon-6.jpg",
     ],
     srcNutritionImage: "/Watermelon/Nutrition-Facts.png",
-    srcIllustration: "/Watermelon/Watermelon-illustration.png",
+    srcIllustration: "/Watermelon/Watermelon-illustration1.png",
+    srcIllustrationCard: "/Watermelon/Watermelon-illustration.png",
     description:
       "Our newest member to the sugarfree family! Take a bite straight out of a perfectly ripe watermelon slice. A crisp, juicy flavour that will transport you to a sun-kissed garden, where the trees are blooming and the sweetness of spring fills the air. Freshness in every sip!",
     ingredients: [
@@ -80,7 +86,8 @@ export const ALL_PRODUCTS = [
       "/Passion/Passion-4.jpg",
     ],
     srcNutritionImage: "/Passion/Nutrition-Facts.png",
-    srcIllustration: "/Passion/Passion-illustration.png",
+    srcIllustration: "/Passion/Passion-illustration1.png",
+    srcIllustrationCard: "/Passion/Passion-illustration.png",
     description:
       "Our newest member to the sugarfree family! Take a bite straight out of a perfectly ripe watermelon slice. A crisp, juicy flavour that will transport you to a sun-kissed garden, where the trees are blooming and the sweetness of spring fills the air. Freshness in every sip!",
     ingredients: [
@@ -114,7 +121,8 @@ export const ALL_PRODUCTS = [
       "/Mint/Mint-4.jpg",
     ],
     srcNutritionImage: "/Mint/Nutrition-Facts.png",
-    srcIllustration: "/Mint/Mint-illustration.png",
+    srcIllustration: "/Mint/Mint-illustration1.png",
+    srcIllustrationCard: "/Mint/Mint-illustration.png",
     description:
       "Our newest member to the sugarfree family! Take a bite straight out of a perfectly ripe watermelon slice. A crisp, juicy flavour that will transport you to a sun-kissed garden, where the trees are blooming and the sweetness of spring fills the air. Freshness in every sip!",
     ingredients: [
@@ -143,7 +151,8 @@ export const ALL_PRODUCTS = [
     srcImage: "/Rose/Rose.png",
     srcAllImage: ["/Rose/Rose-1.jpg", "/Rose/Rose-2.jpg", "/Rose/Rose-3.jpg"],
     srcNutritionImage: "/Rose/Nutrition-Facts.png",
-    srcIllustration: "/Rose/Rose-illustration.png",
+    srcIllustration: "/Rose/Rose-illustration1.png",
+    srcIllustrationCard: "/Rose/Rose-illustration.png",
     description:
       "Our newest member to the sugarfree family! Take a bite straight out of a perfectly ripe watermelon slice. A crisp, juicy flavour that will transport you to a sun-kissed garden, where the trees are blooming and the sweetness of spring fills the air. Freshness in every sip!",
     ingredients: [
@@ -179,7 +188,8 @@ export const ALL_PRODUCTS = [
       "/Original/Original-6.jpg",
     ],
     srcNutritionImage: "/Original/Nutrition-Facts.png",
-    srcIllustration: "/Original/Original-illustration.png",
+    srcIllustration: "/Original/Original-illustration1.png",
+    srcIllustrationCard: "/Original/Original-illustration.png",
     description:
       "Our newest member to the sugarfree family! Take a bite straight out of a perfectly ripe watermelon slice. A crisp, juicy flavour that will transport you to a sun-kissed garden, where the trees are blooming and the sweetness of spring fills the air. Freshness in every sip!",
     ingredients: [
@@ -213,7 +223,8 @@ export const ALL_PRODUCTS = [
       "/Ginger/Ginger-4.jpg",
     ],
     srcNutritionImage: "/Ginger/Nutrition-Facts.png",
-    srcIllustration: "/Ginger/Ginger-illustration.png",
+    srcIllustration: "/Ginger/Ginger-illustration1.png",
+    srcIllustrationCard: "/Ginger/Ginger-illustration.png",
     description:
       "Our newest member to the sugarfree family! Take a bite straight out of a perfectly ripe watermelon slice. A crisp, juicy flavour that will transport you to a sun-kissed garden, where the trees are blooming and the sweetness of spring fills the air. Freshness in every sip!",
     ingredients: [

@@ -72,3 +72,22 @@ module.exports = {
   },
   plugins: [],
 };
+
+// gray: {
+//   DEFAULT: "rgb(227, 227, 227)",
+//   20: "rgba(227, 227, 227, 0.2)",
+//   50: "rgba(227, 227, 227, 0.5)",
+// },
+// white: "var(--color-white)",
+// black: "var(--color-black)",
+// red: "var(--color-red)",
+// lightRed: "var(--color-lightRed)",
+// lightPink: "var(--color-lightPink)",
+// beige: "var(--color-beige)",
+// brown: "var(--color-brown)",
+
+// orange: "var(--color-orange)",
+// pink: "var(--color-pink)",
+// yellow: "var(--color-yellow)",
+// lightGreen: "var(--color-lightGreen)",
+// green: "var(--color-green)",

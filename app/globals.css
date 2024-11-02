@@ -23,6 +23,8 @@
     --color-gray: #e3e3e3;
     --color-brown: #9b5b37;
     --color-beige: #fff5e9;
+    --color-header-button: rgb(227, 227, 227, 0.2);
+    --color-header-button-hover: rgba(227, 227, 227, 0.5);
 
     /* PADDING */
     --padding-small: 1.25rem;

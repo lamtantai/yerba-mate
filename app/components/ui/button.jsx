@@ -3,7 +3,6 @@
 import React from "react";
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { twMerge } from "tailwind-merge";
 
 export default function Button({ children, ...props }) {
   return <button {...props}>{children}</button>;

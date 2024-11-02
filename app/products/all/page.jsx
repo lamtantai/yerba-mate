@@ -8,6 +8,7 @@ import ProductCard from "@/app/components/ui/product-card";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/app/components/button";
+import SpreadOut from "@/app/animations/spread-out";
 
 const variants = {
   enter: { transition: { staggerChildren: 0.08 } },
@@ -15,8 +16,8 @@ const variants = {
 
 export default function AllProducts() {
   return (
-    <div className="pt-[calc(var(--header-height-inner)+var(--header-height-padding))]">
-      <div className="my-20">
+    <div className="">
+      <div className="my-20 pt-[calc(var(--header-height-inner)+var(--header-height-padding)*2)]">
         <div className="px-5">
           <div className="mb-20 md:px-10 xl:mb-32">
             <BouncingText
@@ -34,11 +35,11 @@ export default function AllProducts() {
             variants={variants}
           >
             {products.map((product, index) => (
-              <ProductCard
-                product={product}
-                key={product.name + index}
-                href={product.href}
-              />
+              <SpreadOut key={product.name + index}>
+                <div className="aspect-[5/4] lg:aspect-[450/400]">
+                  <ProductCard product={product} />
+                </div>
+              </SpreadOut>
             ))}
           </motion.div>
         </div>

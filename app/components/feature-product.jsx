@@ -20,13 +20,14 @@ import Link from "next/link";
 import { clipPathButton, slideIn } from "../animations/animations";
 import InfinityText from "./infinity-text";
 import useGetWindowWidth from "../hooks/useGetWindowWidth";
+import ProductCard from "./ui/product-card";
 
 const Button = ({ backgroundColor, color, isHover }) => {
   return (
     <div className="flex w-full justify-end">
       <motion.button
         className="relative flex h-button w-[125px] items-center rounded-full px-4"
-        initial="initial" 
+        initial="initial"
         animate={isHover ? "animate" : "exit"}
         variants={clipPathButton}
         style={{
@@ -69,6 +70,7 @@ export default function FeatureProduct() {
     offset: ["start start", "end end"],
   });
   const x = useTransform(scrollYProgress, [0, 1], ["100%", "-70%"]);
+  const y = useTransform(scrollYProgress, [0, 0.4], ["-20%", "0%"]);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverStates, setHoverStates] = useState(
@@ -109,7 +111,9 @@ export default function FeatureProduct() {
 
         <motion.div
           className="flex h-full xl:w-fit xl:items-center"
-          style={{ x: windowWidth >= 1280 ? x : 0 }}
+          style={{
+            x: windowWidth >= 1280 ? x : 0,
+          }}
         >
           {/* SWIPER CONTAINER */}
           <Swiper
@@ -123,96 +127,23 @@ export default function FeatureProduct() {
               1024: {
                 slidesPerView: 2.1,
               },
+              1280: { slidesPerView: items.length },
             }}
             speed={500}
             navigation={{
               nextEl: ".swiper-button-next", // Custom buttons
               prevEl: ".swiper-button-prev",
             }}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             className="!px-small"
           >
             {/* SWIPER SLIDE CONTAINER */}
-            {items.map((item, index) => (
+            {items.map((product, index) => (
               <SwiperSlide
-                className="relative overflow-hidden rounded-large xl:!aspect-[680/480] xl:!w-[42.5rem]"
-                key={item.name}
-                style={{ backgroundColor: item.colorSecondary, color: item.colorSecondary }}
+                key={index}
+                className="w-full overflow-hidden rounded-large xl:!w-[42.5rem]"
               >
-                {/* LINK OVERLAY */}
-                <motion.div
-                  onHoverStart={() => {
-                    setHoverStates((prev) =>
-                      prev.map((hover, i) => (i === index ? true : hover)),
-                    );
-                  }}
-                  onHoverEnd={() => {
-                    setHoverStates((prev) =>
-                      prev.map((hover, i) => (i === index ? false : hover)),
-                    );
-                  }}
-                >
-                  <Link
-                    href="/"
-                    className="absolute left-0 top-0 z-30 h-full w-full"
-                  />
-                </motion.div>
-                <div className="relative flex aspect-[5/4] w-full flex-col justify-between p-5 md:aspect-[10/6] md:px-10 lg:aspect-auto lg:h-[25rem] xl:h-full">
-                  <h2 className="text-5xl lg:text-6xl">{item.name}</h2>
-
-                  <Button
-                    backgroundColor={item.colorSecondary}
-                    color={item.colorSecondary}
-                    isHover={hoverStates[index]}
-                  >
-                    {item.name}
-                  </Button>
-
-                  {index < items.length - 1 && (
-                    <>
-                      <div className="absolute bottom-0 left-5 w-[20%] md:left-10">
-                        <motion.div
-                          className="relative"
-                          animate={{ y: hoverStates[index] ? "25%" : "35%" }}
-                          transition={{
-                            duration: 0.3,
-                            ease: [0.38, 0.005, 0.215, 1],
-                          }}
-                        >
-                          <Image
-                            src={item.srcImage}
-                            width={150}
-                            height={50}
-                            alt={item.name}
-                            className="h-auto w-full"
-                          />
-                        </motion.div>
-                      </div>
-
-                      <div className="absolute -left-5 bottom-0 -z-10 w-[45%] md:-left-10">
-                        <motion.div
-                          className="relative"
-                          animate={{
-                            x: hoverStates[index] ? "0%" : "-20%",
-                            y: hoverStates[index] ? "0%" : "20%",
-                            opacity: hoverStates[index] ? 1 : 0,
-                          }}
-                          transition={{
-                            duration: 0.3,
-                            ease: [0.38, 0.005, 0.215, 1],
-                          }}
-                        >
-                          <Image
-                            src={item.srcIllustration}
-                            width={150}
-                            height={50}
-                            alt={item.name}
-                            className="h-auto w-full"
-                          />
-                        </motion.div>
-                      </div>
-                    </>
-                  )}
+                <div className="aspect-[5/4] md:aspect-[10/6] lg:aspect-auto lg:h-[25rem] xl:aspect-[680/480] xl:h-full">
+                  <ProductCard product={product} />
                 </div>
               </SwiperSlide>
             ))}

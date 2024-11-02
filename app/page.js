@@ -5,22 +5,27 @@ import FeatureProduct from "./components/feature-product";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Hero from "./components/hero";
-import SmoothScroll from "./components/locomotive-scroll";
 import SplashYerba from "./components/splash-yerba";
+import SmoothScroll from "./components/locomotive-scroll";
+import MenuProvider from "./context/menu-provider";
 
 export default function Home() {
   return (
-    <div className="relative">
-      <Header />
-      <main className="h-full">
-        <Hero />
-        <FeatureProduct />
-        <SplashYerba />
-        <BlockCTACompact />
-        <CtaFaq />
-        <Carousel />
-      </main>
-      <Footer />
-    </div>
+    <MenuProvider>
+      <SmoothScroll>
+        <div className="relative">
+          <Header />
+          <main className="h-full">
+            <Hero />
+            <FeatureProduct />
+            <SplashYerba />
+            <BlockCTACompact />
+            <CtaFaq />
+            <Carousel />
+          </main>
+          <Footer />
+        </div>
+      </SmoothScroll>
+    </MenuProvider>
   );
 }
