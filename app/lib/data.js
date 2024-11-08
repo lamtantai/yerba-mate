@@ -72,6 +72,7 @@ export const ALL_PRODUCTS = [
     colorPrimary: "var(--color-red)",
     colorSecondary: "var(--color-pink)",
     colorAccent: "#d80510",
+    colorHeaderButton: "#9e040c",
     href: "/products/watermelon",
   },
 
@@ -106,7 +107,8 @@ export const ALL_PRODUCTS = [
     ],
     colorPrimary: "var(--color-orange)",
     colorSecondary: "var(--color-yellow)",
-    colorAccent: "#d80510",
+    colorAccent: "#ffb600",
+    colorHeaderButton: "#ff9500",
     href: "/products/passion",
   },
 
@@ -141,7 +143,8 @@ export const ALL_PRODUCTS = [
     ],
     colorPrimary: "var(--color-green)",
     colorSecondary: "var(--color-lightGreen)",
-    colorAccent: "#d80510",
+    colorAccent: "#257535",
+    colorHeaderButton: "#235c1b",
     href: "/products/mint-lime",
   },
 
@@ -171,7 +174,8 @@ export const ALL_PRODUCTS = [
     ],
     colorPrimary: "var(--color-lightRed)",
     colorSecondary: "var(--color-lightPink)",
-    colorAccent: "#d80510",
+    colorAccent: "#f85f72",
+    colorHeaderButton: "#b41924",
     href: "/products/rose-hibiscus",
   },
 
@@ -208,7 +212,8 @@ export const ALL_PRODUCTS = [
     ],
     colorPrimary: "var(--color-black)",
     colorSecondary: "var(--color-gray)",
-    colorAccent: "#d80510",
+    colorAccent: "#7c7c7b",
+    colorHeaderButton: "#000000",
     href: "/products/original",
   },
 
@@ -243,7 +248,8 @@ export const ALL_PRODUCTS = [
     ],
     colorPrimary: "var(--color-brown)",
     colorSecondary: "var(--color-beige)",
-    colorAccent: "#d80510",
+    colorAccent: "#b67251",
+    colorHeaderButton: "#9b5b37",
     href: "/products/ginger",
   },
 ];

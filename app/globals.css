@@ -7,6 +7,9 @@
     --header-link-height: 2.5rem;
     --header-height-inner: 3.125rem;
     --header-height-padding: 0.625rem;
+    --header-height: calc(
+      var(--header-height-inner) + var(--header-height-padding) * 2
+    );
     --border-radius-large: 30px;
 
     /* COLORS */

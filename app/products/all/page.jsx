@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import SpreadOut from "@/app/animations/spread-out";
+import Header from "@/app/components/header/header";
+import { CTAButton } from "@/app/components/ui/button";
 
 const variants = {
   enter: { transition: { staggerChildren: 0.08 } },
@@ -17,7 +19,8 @@ const variants = {
 export default function AllProducts() {
   return (
     <div className="">
-      <div className="my-20 pt-[calc(var(--header-height-inner)+var(--header-height-padding)*2)]">
+      <Header relative color="black" />
+      <div className="">
         <div className="px-5">
           <div className="mb-20 md:px-10 xl:mb-32">
             <BouncingText
@@ -69,7 +72,7 @@ export default function AllProducts() {
                 Mate Libre again
               </h2>
 
-              <Button href="/products/build-your-box">build your box</Button>
+              <CTAButton href="/">build your box</CTAButton>
             </div>
           </div>
         </div>

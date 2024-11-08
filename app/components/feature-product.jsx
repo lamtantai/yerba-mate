@@ -9,18 +9,19 @@ import "swiper/css";
 import { useRef, useState } from "react";
 
 // IMPORT DATA
-import { MOST_POPULAR_YERBA_MATE as items } from "../lib/data";
+import { ALL_PRODUCTS as items } from "../lib/data";
 
 // IMPORT REACT ICON
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+
 import { clipPathButton, slideIn } from "../animations/animations";
 import InfinityText from "./infinity-text";
 import useGetWindowWidth from "../hooks/useGetWindowWidth";
 import ProductCard from "./ui/product-card";
+import { SwiperButtonContainer } from "./ui/button";
+import useGetPositionOfSwiperSlide from "../hooks/useGetPositionOfSwiperSlide";
 
 const Button = ({ backgroundColor, color, isHover }) => {
   return (
@@ -69,13 +70,9 @@ export default function FeatureProduct() {
     target: container,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["100%", "-70%"]);
-  const y = useTransform(scrollYProgress, [0, 0.4], ["-20%", "0%"]);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverStates, setHoverStates] = useState(
-    Array(items.length).fill(false),
-  );
+  const x = useTransform(scrollYProgress, [0, 1], ["50%", "-80%"]);
+  const { isBeginning, isEnd, handleSlideChange } =
+    useGetPositionOfSwiperSlide();
 
   return (
     <motion.div
@@ -90,21 +87,11 @@ export default function FeatureProduct() {
             </h2>
 
             {/* CUSTOM ARROW NAVIGATION */}
-            <div className="flex gap-2 xl:hidden">
-              <button
-                className={`swiper-button-prev h-button w-button rounded-full bg-gray text-black ${activeIndex === 0 && "pointer-events-none opacity-40"}`}
-              >
-                <span className="flex items-center justify-center text-xl">
-                  <IoArrowBackSharp />
-                </span>
-              </button>
-              <button
-                className={`swiper-button-next h-button w-button rounded-full bg-gray text-black ${activeIndex === items.length - 1 && "pointer-events-none opacity-40"}`}
-              >
-                <span className="flex items-center justify-center text-xl">
-                  <IoArrowForwardSharp />
-                </span>
-              </button>
+            <div className="xl:hidden">
+              <SwiperButtonContainer
+                navClassButtonPrev={`swiper-button-prev ${isBeginning ? "pointer-events-none opacity-50" : ""}`}
+                navClassButtonNext={`swiper-button-next ${isEnd ? "pointer-events-none opacity-50" : ""}`}
+              />
             </div>
           </div>
         </div>
@@ -120,6 +107,8 @@ export default function FeatureProduct() {
             modules={[Navigation]}
             spaceBetween={15}
             slidesPerView={1}
+            onInit={(swiper) => handleSlideChange(swiper)}
+            onSlideChange={(swiper) => handleSlideChange(swiper)}
             breakpoints={{
               768: {
                 spaceBetween: 20,

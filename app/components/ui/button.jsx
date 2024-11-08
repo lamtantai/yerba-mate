@@ -17,7 +17,7 @@ export function SwiperButtonContainer({
   return (
     <div className="flex gap-1">
       <button
-        className={`${navClassButtonPrev} swiper-button-prev rounded-full bg-gray text-black`}
+        className={`${navClassButtonPrev} rounded-full bg-gray text-black`}
         style={{ color, backgroundColor }}
       >
         <span className="flex h-button w-button items-center justify-center text-xl">
@@ -25,7 +25,7 @@ export function SwiperButtonContainer({
         </span>
       </button>
       <button
-        className={`${navClassButtonNext} swiper-button-prev rounded-full bg-gray text-black`}
+        className={`${navClassButtonNext} rounded-full bg-gray text-black`}
         style={{ color, backgroundColor }}
       >
         <span className="flex h-button w-button items-center justify-center text-xl">
@@ -68,26 +68,37 @@ export function CTAButton({
 }) {
   const chars = children.split("");
   return (
-    <div className="">
-      <motion.a
-        href={href}
-        className={`inline-flex h-16 items-center rounded-full px-7 ${backgroundWhite ? "bg-white text-black" : "bg-black text-white"}`}
-        initial="initial"
-        whileHover="animate"
-        style={{ backgroundColor, color }}
-      >
-        <motion.span className="pb-[0.025rem]" variants={parent}>
-          {chars.map((char, index) => (
-            <motion.span
-              className="inline-block text-xl leading-none"
-              key={index + char}
-              variants={waving}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </motion.span>
-      </motion.a>
-    </div>
+    <motion.div
+      className="w-fit"
+      initial={{
+        clipPath: "inset(100% round 64px)",
+      }}
+      animate={{
+        clipPath: "inset(0 0 0 0 round 64px)",
+      }}
+      transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+    >
+      <div>
+        <motion.a
+          href={href}
+          className={`inline-flex h-16 items-center rounded-full px-7 ${backgroundWhite ? "bg-white text-black" : "bg-black text-white"}`}
+          initial="initial"
+          whileHover="animate"
+          style={{ backgroundColor, color }}
+        >
+          <motion.span className="pb-[0.025rem]" variants={parent}>
+            {chars.map((char, index) => (
+              <motion.span
+                className="inline-block text-xl leading-none"
+                key={index + char}
+                variants={waving}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.span>
+        </motion.a>
+      </div>
+    </motion.div>
   );
 }

@@ -18,7 +18,7 @@ const clipPathButton = {
   },
 };
 
-export default function ProductCard({ product}) {
+export default function ProductCard({ product }) {
   const [isHover, setIsHover] = useState(false);
   return (
     <motion.div
@@ -33,7 +33,7 @@ export default function ProductCard({ product}) {
       <div className="relative flex h-full w-full flex-col justify-between p-5 md:px-10">
         <h2 className="max-w-[12.5rem] text-h2/none">{product.name}</h2>
 
-        <div className="relative z-50 flex justify-end">
+        <div className="relative flex justify-end">
           <motion.button
             className="relative flex h-button w-[125px] items-center rounded-full px-4"
             initial="initial"
@@ -113,7 +113,7 @@ export default function ProductCard({ product}) {
 
       <Link
         href={product.href}
-        className="absolute inset-0 z-30 h-full w-full bg-black opacity-0 duration-300 hover:opacity-5"
+        className="absolute inset-0 z-30 h-full w-full"
       />
     </motion.div>
   );

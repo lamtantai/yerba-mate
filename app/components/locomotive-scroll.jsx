@@ -30,11 +30,6 @@ const SmoothScroll = ({ children }) => {
         ? locomotiveInstance.current.stop()
         : locomotiveInstance.current.start();
     }
-    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
   }, [isMenuOpen]);
 
   return (

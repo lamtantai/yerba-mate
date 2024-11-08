@@ -1,10 +1,12 @@
 export const slideIn = {
   initial: {
     y: "100%",
+    opacity: 0,
   },
 
   enter: {
     y: "0%",
+    opacity: 1,
     transition: { duration: 0.6, ease: [0.38, 0.005, 0.215, 1] },
   },
 

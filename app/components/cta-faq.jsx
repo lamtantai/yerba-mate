@@ -1,15 +1,15 @@
 "use client";
 
-import AccordionToggler from "./ui/accordion";
+import AccordionToggler from "./ui/accordion-toggler";
 
 export default function CtaFaq() {
   return (
     <div className="text-xl">
       <div className="my-20 lg:flex">
-        <h3 className="mb-10 h-fit px-small lg:my-[1.25rem] lg:basis-[45%] xl:text-2xl">
+        <h3 className="mb-10 h-fit px-small lg:my-[1.25rem] lg:basis-1/2 xl:text-2xl">
           Frequently asked questions
         </h3>
-        <ul className="md:px-5 lg:basis-[55%]">
+        <ul className="md:px-5 lg:basis-1/2">
           <AccordionToggler label="What is Yerba Mate?">
             <p>
               Ilex paraguariensis, by its botanical name, or yerba maté, is a
