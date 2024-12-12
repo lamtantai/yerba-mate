@@ -3,6 +3,7 @@
 import React from "react";
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Button({ children, ...props }) {
   return <button {...props}>{children}</button>;
@@ -78,9 +79,8 @@ export function CTAButton({
       }}
       transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
     >
-      <div>
-        <motion.a
-          href={href}
+      <Link href={href}>
+        <motion.p
           className={`inline-flex h-16 items-center rounded-full px-7 ${backgroundWhite ? "bg-white text-black" : "bg-black text-white"}`}
           initial="initial"
           whileHover="animate"
@@ -97,8 +97,8 @@ export function CTAButton({
               </motion.span>
             ))}
           </motion.span>
-        </motion.a>
-      </div>
+        </motion.p>
+      </Link>
     </motion.div>
   );
 }

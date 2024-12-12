@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     <MenuProvider>
       <SmoothScroll>
         <div className="relative">
-          <main className="h-full">
+          <main className="">
             {children}
 
             <CtaFaq />

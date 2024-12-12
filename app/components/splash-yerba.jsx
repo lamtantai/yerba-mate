@@ -9,6 +9,7 @@ import Button from "./button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedInView, { AnimatedText } from "./animated-inview";
 import useGetWindowWidth from "../hooks/useGetWindowWidth";
+import { CTAButton } from "./ui/button";
 
 const variants = {
   enter: {
@@ -27,13 +28,13 @@ export default function SplashYerba() {
   const clipRight = useTransform(
     scrollYProgress,
     [0, 0.6], // Progress from 0 to 1
-    ["inset(100% 100% 0% 0%)", "inset(0% 50% 0% 0%)"], // From fully hidden to fully visible
+    ["inset(100% 100% 0% 0%)", "inset(0% 49% 0% 0%)"], // From fully hidden to fully visible
   );
 
   const clipLeft = useTransform(
     scrollYProgress,
     [0, 0.6], // Progress from 0 to 1
-    ["inset(100% 0% 0% 100%)", "inset(0% 0% 0% 50%)"], // From fully hidden to fully visible
+    ["inset(100% 0% 0% 100%)", "inset(0% 0% 0% 49%)"], // From fully hidden to fully visible
   );
 
   const opacity = useTransform(scrollYProgress, [0.7, 0.75, 0.8], [0, 0.5, 1]);
@@ -156,9 +157,9 @@ export default function SplashYerba() {
             </div>
 
             <div className="hidden px-small lg:block">
-              <Button href="/" bgWhite>
+              <CTAButton href="/" bgWhite>
                 discover yerba maté
-              </Button>
+              </CTAButton>
             </div>
             <div className="px-small lg:hidden">
               <Button href="/">discover yerba maté</Button>

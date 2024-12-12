@@ -6,7 +6,7 @@ import { PiFlowerLotusLight } from "react-icons/pi";
 import { PiHandshakeLight } from "react-icons/pi";
 import AnimatedInView from "./animated-inview";
 import { opacity } from "../animations/animations";
-import Button from "./button";
+import { CTAButton } from "./ui/button";
 
 export default function BlockCTACompact() {
   return (
@@ -65,7 +65,7 @@ export default function BlockCTACompact() {
               </p>
             </li>
           </ul>
-          <Button href="/">discover our commitments</Button>
+          <CTAButton href="/">discover our commitments</CTAButton>
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
 "use client";
+
 import { useEffect, useRef } from "react";
+
 import LocomotiveScroll from "locomotive-scroll";
+
 import { useMenu } from "../context/menu-provider";
 
 const SmoothScroll = ({ children }) => {

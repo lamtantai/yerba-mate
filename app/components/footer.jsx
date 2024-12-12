@@ -42,21 +42,6 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-
-      <div className="mt-36 px-small">
-        <p className="text-sm xl:text-2xl">
-          This project was built to practice front-end development skills. The
-          design and layout were inspired by{" "}
-          <a
-            href="https://matelibre.com/"
-            target="_blank"
-            className="text-green"
-          >
-            mate libre
-          </a>
-          .
-        </p>
-      </div>
     </footer>
   );
 }

@@ -1,13 +1,11 @@
 "use client";
 
 import BouncingText from "@/app/components/ui/bouncing-text";
-import Link from "next/link";
 import React from "react";
 import { ALL_PRODUCTS as products } from "@/app/lib/data";
 import ProductCard from "@/app/components/ui/product-card";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Button from "@/app/components/button";
 import SpreadOut from "@/app/animations/spread-out";
 import Header from "@/app/components/header/header";
 import { CTAButton } from "@/app/components/ui/button";

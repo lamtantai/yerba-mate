@@ -104,38 +104,16 @@ export default function Menu({ isOpen }) {
                   </Link>
                 </motion.li>
 
-                <motion.li variants={slideInLeft}>
-                  <button
-                    href="/"
-                    className="inline-flex items-center py-[0.375rem] transition-opacity duration-300 hover:opacity-50"
-                    onClick={() => setIsDropdown((prev) => !prev)}
+                <motion.li
+                  variants={slideInLeft}
+                  className="transition-opacity duration-300 hover:opacity-50"
+                >
+                  <Link
+                    href="/products/all"
+                    className="inline-block py-[0.375rem]"
                   >
                     explore
-                    <MdKeyboardArrowDown />
-                  </button>
-
-                  {/* EXPAND MENU LIST  */}
-                  <motion.div
-                    className="overflow-hidden"
-                    variants={{
-                      initial: { height: 0 },
-                      animate: { height: 170 },
-                    }}
-                    animate={isDropdown ? "animate" : "initial"}
-                  >
-                    <ul className="pb-8 pt-5 text-2xl lg:text-3xl">
-                      {["yerba mate", "our story", "fair trade", "faq"].map(
-                        (item, index) => (
-                          <li
-                            key={index}
-                            className="transition-opacity duration-300 hover:opacity-50"
-                          >
-                            <Link href="/">{item}</Link>
-                          </li>
-                        ),
-                      )}
-                    </ul>
-                  </motion.div>
+                  </Link>
                 </motion.li>
 
                 <motion.li

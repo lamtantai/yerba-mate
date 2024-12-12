@@ -1,1 +1,14 @@
-This project was built to practice front-end development skills. The design and layout were inspired by mate libre (https://matelibre.com/)
+# Yerba mate
+
+This project was built to practice front-end development skills. The design and layout were inspired by [Mate Libre](https://matelibre.com/)
+
+## Tech
+
+- ReactJS
+- NextJS
+- TailwindCSS
+- Framer Motion
+
+## Live site
+
+https://matemeta.vercel.app/

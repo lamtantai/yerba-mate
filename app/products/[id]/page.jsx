@@ -238,7 +238,7 @@ export default function ProductPage({ params }) {
               <PerkItem svgIcon={<PiHandshakeLight />}>no jilters</PerkItem>
             </motion.ul>
 
-            <div className="grid h-full w-full">
+            <div className="grid h-auto w-full">
               <div className="-mb-10 -ml-10 mt-16 pr-[35%]">
                 <div className="relative -translate-x-[20%]">
                   <Image
