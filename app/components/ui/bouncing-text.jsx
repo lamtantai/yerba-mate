@@ -13,50 +13,35 @@ const bouncingText = {
   },
 };
 
-const variants = {
-  enter: {
-    transition: { staggerChildren: 0.06 },
-  },
-};
-
-function TextLine({ text, color }) {
-  return (
-    <motion.span
-      className="inline-block"
-      variants={bouncingText}
-      style={{ color }}
-    >
-      {text}
-    </motion.span>
-  );
-}
-
 export default function BouncingText({
   line1,
   line2,
   line3,
-  colorLine1,
-  colorLine2,
-  colorLine3,
+  colorPrimary,
+  colorAccent,
 }) {
   return (
-    <motion.h2
-      className="overflow-hidden text-huge/none tracking-tight text-white"
-      variants={variants}
+    <motion.h1
+      className="overflow-hidden text-huge/[1.1] tracking-tight text-white"
+      variants={{
+        enter: {
+          transition: { staggerChildren: 0.06 },
+        },
+      }}
       initial="initial"
       animate="enter"
     >
-      <TextLine text={line1} color={colorLine1} />
+      <motion.span variants={bouncingText} style={{ color: colorPrimary }}>
+        {line1}
+      </motion.span>
       <br />
-      <TextLine text={line2} color={colorLine2} />
+      <motion.span variants={bouncingText} style={{ color: colorAccent }}>
+        {line2}
+      </motion.span>
       <br />
-
-      {/* CONDITIONAL ADDING LINE 3 OF TEXT */}
-      {line3 && (
-        <>
-          <TextLine text={line3} color={colorLine3} />
-        </>
-      )}
-    </motion.h2>
+      <motion.span variants={bouncingText} style={{ color: colorAccent }}>
+        {line3}
+      </motion.span>
+    </motion.h1>
   );
 }

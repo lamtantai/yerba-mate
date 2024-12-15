@@ -1,6 +1,11 @@
-import React from "react";
+"use client";
 
-export default function Logo({ color = "white", isMenuOpen }) {
+import React from "react";
+import { useMenu } from "../context/menu-provider";
+
+export default function Logo({ color = "white" }) {
+  const { isMenuOpen } = useMenu();
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

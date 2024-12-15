@@ -1,36 +1,39 @@
-"use client";
-
 import BouncingText from "./ui/bouncing-text";
+
 import { CTAButton } from "./ui/button";
-import { motion } from "framer-motion";
-import PlaceHolderImage from "./ui/placeholder-image";
+
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative z-10">
-      <div className="relative mb-16 h-dvh w-full overflow-hidden">
-        <motion.div
-          className="absolute left-0 top-0 -z-10 h-full w-full bg-black brightness-75"
-          data-scroll
-          data-scroll-speed="-0.5"
-        >
-          <PlaceHolderImage src="/hero-home-03.jpg" />
-        </motion.div>
-        <div className="flex h-full w-full flex-col justify-end px-small pb-10 pt-24 lg:pb-32">
-          <div className="mb-10">
-            <BouncingText
-              line1="the ideal"
-              colorLine1="var(--color-gray)"
-              line2="dose"
-              colorLine2="var(--color-gray)"
-              line3="of nature"
-            />
-          </div>
+    <section className="relative z-10 mb-16 h-dvh w-full overflow-hidden">
+      <div
+        className="shimmer-bg absolute inset-0 -z-10"
+        data-scroll
+        data-scroll-speed="-0.5"
+      >
+        <Image
+          src="/hero-home-03.jpg"
+          alt="watermelon product"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover brightness-75"
+        />
+      </div>
 
-          <CTAButton href="/" backgroundWhite>
-            build your box
-          </CTAButton>
-        </div>
+      <div className="flex h-full w-full flex-col justify-end gap-y-8 px-small pb-10 pt-24 lg:pb-28">
+        <BouncingText
+          line1="the ideal"
+          line2="dose"
+          line3="of nature"
+          colorPrimary="var(--color-gray)"
+          colorAccent="var(--color-white)"
+        />
+
+        <CTAButton href="/" backgroundWhite>
+          build your box
+        </CTAButton>
       </div>
     </section>
   );

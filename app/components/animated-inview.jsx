@@ -1,12 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { bounce } from "../animations/animations";
 
 export default function AnimatedInView({ variants, fit, children }) {
@@ -21,18 +16,6 @@ export default function AnimatedInView({ variants, fit, children }) {
       {children}
     </motion.div>
   );
-}
-
-export function ScrollYProgressContainer({ children }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  useMotionValueEvent(scrollYProgress, "change", (latest) =>
-    console.log(latest),
-  );
-  return <motion.div ref={ref}>{children}</motion.div>;
 }
 
 export function AnimatedText({ line1, line2 }) {

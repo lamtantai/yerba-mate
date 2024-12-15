@@ -30,14 +30,13 @@ export default function MenuProvider({ children }) {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // Cleanup function to remove the event listener on unmount
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isMenuOpen, closeMenu]);
 
   return (
-    <MenuContext.Provider value={{ isMenuOpen, toggleMenu }}>
+    <MenuContext.Provider value={{ isMenuOpen, toggleMenu, closeMenu }}>
       {children}
     </MenuContext.Provider>
   );

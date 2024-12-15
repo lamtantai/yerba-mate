@@ -1,41 +1,10 @@
 "use client";
 
 import React from "react";
-import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
+
 import { motion } from "framer-motion";
+
 import Link from "next/link";
-
-export default function Button({ children, ...props }) {
-  return <button {...props}>{children}</button>;
-}
-
-export function SwiperButtonContainer({
-  color,
-  backgroundColor,
-  navClassButtonPrev,
-  navClassButtonNext,
-}) {
-  return (
-    <div className="flex gap-1">
-      <button
-        className={`${navClassButtonPrev} rounded-full bg-gray text-black`}
-        style={{ color, backgroundColor }}
-      >
-        <span className="flex h-button w-button items-center justify-center text-xl">
-          <IoArrowBackSharp />
-        </span>
-      </button>
-      <button
-        className={`${navClassButtonNext} rounded-full bg-gray text-black`}
-        style={{ color, backgroundColor }}
-      >
-        <span className="flex h-button w-button items-center justify-center text-xl">
-          <IoArrowForwardSharp />
-        </span>
-      </button>
-    </div>
-  );
-}
 
 const waving = {
   initial: {

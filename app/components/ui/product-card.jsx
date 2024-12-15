@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
+
 import { IoArrowForwardSharp } from "react-icons/io5";
-import SpreadOut from "@/app/animations/spread-out";
 
 const clipPathButton = {
   initial: {
@@ -20,6 +21,7 @@ const clipPathButton = {
 
 export default function ProductCard({ product }) {
   const [isHover, setIsHover] = useState(false);
+
   return (
     <motion.div
       className="relative h-full w-full overflow-hidden rounded-large"
@@ -27,8 +29,8 @@ export default function ProductCard({ product }) {
         backgroundColor: product.colorSecondary,
         color: product.colorPrimary,
       }}
-      onHoverStart={() => setIsHover(true)}
-      onHoverEnd={() => setIsHover(false)}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
     >
       <div className="relative flex h-full w-full flex-col justify-between p-5 md:px-10">
         <h2 className="max-w-[12.5rem] text-h2/none">{product.name}</h2>

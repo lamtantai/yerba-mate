@@ -1,5 +1,10 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import SmoothScroll from "./components/locomotive-scroll";
+import MenuProvider from "./context/menu-provider";
+import Footer from "./components/footer";
+import CtaFaq from "./components/cta-faq";
+import Menu from "./components/menu";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -32,9 +37,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${studioProBold.variable} ${studioProRegular.variable} font-studioProBold antialiased`}
+        className={`${studioProBold.variable} ${studioProRegular.variable} font-studioProBold`}
       >
-        {children}
+        <MenuProvider>
+          <SmoothScroll>
+            <Menu />
+            <main>
+              {children}
+              <CtaFaq />
+            </main>
+            <Footer />
+          </SmoothScroll>
+        </MenuProvider>
       </body>
     </html>
   );

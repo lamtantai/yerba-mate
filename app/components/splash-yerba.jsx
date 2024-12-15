@@ -5,7 +5,6 @@ import React, { useRef } from "react";
 import { PiFlowerLotusLight } from "react-icons/pi";
 import { PiInfinityLight } from "react-icons/pi";
 import { WiStars } from "react-icons/wi";
-import Button from "./button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedInView, { AnimatedText } from "./animated-inview";
 import useGetWindowWidth from "../hooks/useGetWindowWidth";
@@ -19,7 +18,9 @@ const variants = {
 
 export default function SplashYerba() {
   const windowWidth = useGetWindowWidth();
+
   const refContainer = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: refContainer,
     offset: ["start start", "end end"],
@@ -27,14 +28,14 @@ export default function SplashYerba() {
 
   const clipRight = useTransform(
     scrollYProgress,
-    [0, 0.6], // Progress from 0 to 1
-    ["inset(100% 100% 0% 0%)", "inset(0% 49% 0% 0%)"], // From fully hidden to fully visible
+    [0, 0.6],
+    ["inset(100% 100% 0% 0%)", "inset(0% 49% 0% 0%)"],
   );
 
   const clipLeft = useTransform(
     scrollYProgress,
-    [0, 0.6], // Progress from 0 to 1
-    ["inset(100% 0% 0% 100%)", "inset(0% 0% 0% 49%)"], // From fully hidden to fully visible
+    [0, 0.6],
+    ["inset(100% 0% 0% 100%)", "inset(0% 0% 0% 49%)"],
   );
 
   const opacity = useTransform(scrollYProgress, [0.7, 0.75, 0.8], [0, 0.5, 1]);
@@ -47,7 +48,6 @@ export default function SplashYerba() {
             <AnimatedText line1="the benefits of" line2="yerba maté" />
           </AnimatedInView>
 
-          {/* BENEFITS LIST  */}
           <div className="px-small pb-24">
             <ul className="space-y-14 text-balance md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-14 md:space-y-0 lg:mx-auto lg:max-w-[21.25rem] lg:grid-cols-1">
               <li className="">
@@ -162,7 +162,7 @@ export default function SplashYerba() {
               </CTAButton>
             </div>
             <div className="px-small lg:hidden">
-              <Button href="/">discover yerba maté</Button>
+              <CTAButton href="/">discover yerba maté</CTAButton>
             </div>
           </motion.div>
         </div>

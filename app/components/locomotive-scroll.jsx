@@ -8,11 +8,12 @@ import { useMenu } from "../context/menu-provider";
 
 const SmoothScroll = ({ children }) => {
   const { isMenuOpen } = useMenu();
+
   const scrollRef = useRef(null);
+
   const locomotiveInstance = useRef(null);
 
   useEffect(() => {
-    // Initialize Locomotive Scroll once
     if (scrollRef.current) {
       locomotiveInstance.current = new LocomotiveScroll({
         el: scrollRef.current,
@@ -20,19 +21,20 @@ const SmoothScroll = ({ children }) => {
       });
     }
 
-    // Clean up on unmount
     return () => {
       if (locomotiveInstance.current) locomotiveInstance.current.destroy();
     };
   }, []);
 
   useEffect(() => {
-    // Control Locomotive Scroll and body overflow based on `isMenuOpen`
-    if (locomotiveInstance.current) {
-      isMenuOpen
-        ? locomotiveInstance.current.stop()
-        : locomotiveInstance.current.start();
+    if (locomotiveInstance.current && isMenuOpen) {
+      locomotiveInstance.current.stop();
+      document.querySelector("body").style.overflow = "hidden";
     }
+    return () => {
+      locomotiveInstance.current.start();
+      document.querySelector("body").style.overflow = "auto";
+    };
   }, [isMenuOpen]);
 
   return (
